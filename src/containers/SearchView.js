@@ -20,8 +20,8 @@ class SearchView extends React.PureComponent {
     e.preventDefault();
     this.setState(state => ({ currentSearch: state.searchInput }), () => {
       getArtists(this.state.currentSearch)
-        .then(artists => {
-          this.setState({ artistsData: artists.artists });
+        .then(res => {
+          this.setState({ artistsData: res.artists });
         });
     });
   }

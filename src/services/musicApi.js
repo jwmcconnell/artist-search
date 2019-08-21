@@ -7,5 +7,13 @@ export const getArtists = (artist) => {
       if(!res.ok) throw 'Could not get artists';
 
       return res.json();
+    })
+    .then(json => {
+      json.artists = json.artists.map(artist => ({
+        id: artist.id,
+        name: artist.name,
+        disambiguation: artist.disambiguation
+      }));
+      return json;
     });
 };

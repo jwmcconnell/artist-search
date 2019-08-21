@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import Artist from './Artist';
 
 const Artists = ({ artistsData }) => {
-  console.log(artistsData);
   const artists = artistsData.map(artist => (
     <Artist key={artist.id} artist={artist} />
   ));

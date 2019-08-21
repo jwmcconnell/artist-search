@@ -28,7 +28,11 @@ const ArtistItem = ({ artist }) => {
 };
 
 ArtistItem.propTypes = {
-  artist: PropTypes.object.isRequired
+  artist: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+    disambiguation: PropTypes.string
+  }).isRequired
 };
 
 export default ArtistItem;

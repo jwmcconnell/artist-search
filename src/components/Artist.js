@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const styles = {
   item: {
@@ -16,10 +17,13 @@ const styles = {
 
 const Artist = ({ artist }) => {
   return (
-    <li style={styles.item}>
-      <h4>{artist.name}</h4>
-      <p>{artist.disambiguation}</p>
-    </li>
+    <Link to={`/artist/${artist.id}`}>
+      <li style={styles.item}>
+        <h4>{artist.name}</h4>
+        <p>{artist.disambiguation}</p>
+      </li>
+    </Link>
+    
   );
 };
 

@@ -3,6 +3,11 @@
 exports[`SearchField component renders SearchField 1`] = `
 <form
   onSubmit={[Function]}
+  style={
+    Object {
+      "textAlign": "center",
+    }
+  }
 >
   <label>
     Artist:

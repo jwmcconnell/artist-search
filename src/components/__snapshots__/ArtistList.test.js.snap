@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ArtistList component renders ArtistList 1`] = `
+<ul
+  style={
+    Object {
+      "display": "flex",
+      "flexWrap": "wrap",
+      "justifyContent": "center",
+      "listStyle": "none",
+    }
+  }
+/>
+`;

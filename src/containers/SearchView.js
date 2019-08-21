@@ -1,7 +1,7 @@
 import React from 'react';
 
 import SearchField from '../components/SearchField';
-import Artists from '../components/Artists';
+import ArtistList from '../components/ArtistList';
 
 import { getArtists } from '../services/musicApi';
 
@@ -35,7 +35,7 @@ class SearchView extends React.PureComponent {
           handleUpdate={this.handleUpdate}
           handleSubmit={this.handleSubmit}
         />
-        <Artists artistsData={artistsData} />
+        <ArtistList artistsData={artistsData} />
       </>
     );
   }

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Artist from './Artist';
+import ArtistItem from './ArtistItem';
 
 const styles = {
   list: {
@@ -12,9 +12,9 @@ const styles = {
   }
 };
 
-const Artists = ({ artistsData }) => {
+const ArtistList = ({ artistsData }) => {
   const artists = artistsData.map(artist => (
-    <Artist key={artist.id} artist={artist} />
+    <ArtistItem key={artist.id} artist={artist} />
   ));
   return (
     <ul style={styles.list}>
@@ -23,8 +23,8 @@ const Artists = ({ artistsData }) => {
   );
 };
 
-Artists.propTypes = {
+ArtistList.propTypes = {
   artistsData: PropTypes.array.isRequired
 };
 
-export default React.memo(Artists);
+export default React.memo(ArtistList);

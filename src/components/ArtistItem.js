@@ -15,7 +15,7 @@ const styles = {
   }
 };
 
-const Artist = ({ artist }) => {
+const ArtistItem = ({ artist }) => {
   return (
     <Link to={`/${artist.name}/${artist.id}`}>
       <li style={styles.item}>
@@ -27,8 +27,8 @@ const Artist = ({ artist }) => {
   );
 };
 
-Artist.propTypes = {
+ArtistItem.propTypes = {
   artist: PropTypes.object.isRequired
 };
 
-export default Artist;
+export default ArtistItem;

@@ -1,11 +1,15 @@
 import React from 'react';
 
 import SearchField from '../components/SearchField';
+import Artists from '../components/Artists';
 
-class SearchView extends React.Component {
+import { getArtists } from '../services/musicApi';
+
+class SearchView extends React.PureComponent {
   state = {
     searchInput: '',
-    currentSearch: ''
+    currentSearch: '',
+    artistsData: []
   }
 
   handleUpdate = e => {
@@ -14,16 +18,26 @@ class SearchView extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.setState(state => ({ currentSearch: state.searchInput }));
+    this.setState(state => ({ currentSearch: state.searchInput }), () => {
+      getArtists(this.state.currentSearch)
+        .then(artists => {
+          this.setState({ artistsData: artists.artists });
+        });
+    });
   }
 
   render() {
-    const { searchInput } = this.state;
-    return <SearchField 
-      searchInput={searchInput} 
-      handleUpdate={this.handleUpdate}
-      handleSubmit={this.handleSubmit}
-    />;
+    const { searchInput, artistsData } = this.state;
+    return (
+      <>
+        <SearchField 
+          searchInput={searchInput} 
+          handleUpdate={this.handleUpdate}
+          handleSubmit={this.handleSubmit}
+        />
+        <Artists artistsData={artistsData} />
+      </>
+    );
   }
 }
 

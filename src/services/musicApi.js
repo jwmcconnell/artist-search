@@ -17,3 +17,15 @@ export const getArtists = (artist) => {
       return json;
     });
 };
+
+export const getReleases = (id) => {
+  return fetch(`http://musicbrainz.org/ws/2/release?artist=${id}&fmt=json`, {
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json' },
+  })
+    .then(res => {
+      if(!res.ok) throw 'Could not get releases';
+
+      return res.json();
+    });
+};

@@ -12,7 +12,7 @@ export default function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/artist/:id" component={ArtistView} />
+        <Route path="/:artist/:id" component={ArtistView} />
         <Route path="/" component={SearchView} />
       </Switch>
     </Router>

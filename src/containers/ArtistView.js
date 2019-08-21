@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { getReleases } from '../services/musicApi';
 
+import ReleasesList from '../components/ReleaseList';
+
 class ArtistView extends React.Component {
   state = {
     artist: {},
@@ -17,7 +19,13 @@ class ArtistView extends React.Component {
   }
 
   render() {
-    return <h1>Artist View</h1>;
+    const { releases } = this.state;
+    return (
+      <>
+        <h1>Artist View</h1>
+        <ReleasesList releasesData={releases} />
+      </>
+    );
   }
 }
 

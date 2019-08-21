@@ -1,8 +1,10 @@
 import React from 'react';
 
+import SearchField from '../components/SearchField';
+
 class SearchView extends React.Component {
   render() {
-    return <h1>Search View</h1>;
+    return <SearchField />;
   }
 }
 

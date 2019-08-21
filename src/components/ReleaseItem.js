@@ -15,8 +15,9 @@ const styles = {
 };
 
 const ReleaseItem = ({ release }) => {
-  console.log(release['cover-art-archive'].front);
-  const image = release['cover-art-archive'].front ? `http://coverartarchive.org/release/${release.id}/front` : '/src/assets/placeholder.jpg';
+  const image = release['cover-art-archive'].front 
+    ? `http://coverartarchive.org/release/${release.id}/front` 
+    : '/src/assets/placeholder.jpg';
   return (
     <li style={styles.item}>
       <h3>{release.title}</h3>

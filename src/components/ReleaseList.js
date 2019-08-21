@@ -14,7 +14,6 @@ const styles = {
 };
 
 const ReleaseList = ({ releasesData }) => {
-  console.log(releasesData);
   const releases = releasesData.map(release => (
     <ReleaseItem key={release.id} release={release} />
   ));

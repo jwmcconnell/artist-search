@@ -1,9 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+const styles = {
+  form: {
+    textAlign: 'center'
+  }
+};
+
 const SearchField = ({ searchInput, handleUpdate, handleSubmit }) => {
   return (
-    <form onSubmit={handleSubmit}>
+    <form style={styles.form} onSubmit={handleSubmit}>
       <label>Artist: 
         <input type="text" name="searchInput" value={searchInput} onChange={handleUpdate} />
       </label>

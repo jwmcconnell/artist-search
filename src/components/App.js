@@ -11,7 +11,7 @@ export default function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/" component={SearchView} />
+        <Route exact path="/" component={SearchView} />
       </Switch>
     </Router>
   );

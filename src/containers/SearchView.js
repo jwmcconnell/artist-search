@@ -4,16 +4,26 @@ import SearchField from '../components/SearchField';
 
 class SearchView extends React.Component {
   state = {
-    searchInput: ''
+    searchInput: '',
+    currentSearch: ''
   }
 
   handleUpdate = e => {
     this.setState({ [e.target.name]: e.target.value });
   }
 
+  handleSubmit = e => {
+    e.preventDefault();
+    this.setState(state => ({ currentSearch: state.searchInput }));
+  }
+
   render() {
     const { searchInput } = this.state;
-    return <SearchField searchInput={searchInput} handleUpdate={this.handleUpdate} />;
+    return <SearchField 
+      searchInput={searchInput} 
+      handleUpdate={this.handleUpdate}
+      handleSubmit={this.handleSubmit}
+    />;
   }
 }
 

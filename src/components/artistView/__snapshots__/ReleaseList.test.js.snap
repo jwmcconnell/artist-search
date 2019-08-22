@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReleaseList component renders ReleaseList 1`] = `
+<ul
+  style={
+    Object {
+      "display": "flex",
+      "flexWrap": "wrap",
+      "justifyContent": "center",
+      "listStyle": "none",
+      "margin": 0,
+      "padding": 0,
+    }
+  }
+/>
+`;

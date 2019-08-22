@@ -15,12 +15,12 @@ const styles = {
   }
 };
 
-const ReleaseItem = ({ release }) => {
+const ReleaseItem = ({ release, artist }) => {
   const image = release['cover-art-archive'].front 
     ? `http://coverartarchive.org/release/${release.id}/front` 
     : '/src/assets/placeholder.jpg';
   return (
-    <Link to={`/release/${release.title}/${release.id}`} >
+    <Link to={`/release/${artist}/${release.title}/${release.id}`} >
       <li style={styles.item}>
         <h3>{release.title}</h3>
         <img src={image} style={styles.image}/>
@@ -30,7 +30,8 @@ const ReleaseItem = ({ release }) => {
 };
 
 ReleaseItem.propTypes = {
-  release: PropTypes.object.isRequired
+  release: PropTypes.object.isRequired,
+  artist: PropTypes.string.isRequired
 };
 
 export default ReleaseItem;

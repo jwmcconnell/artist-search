@@ -15,7 +15,7 @@ export default function App() {
     <Router>
       <Switch>
         <Route path="/artist/:artist/:id" component={ArtistView} />
-        <Route path="/release/:release/:id" component={ReleaseView} />
+        <Route path="/release/:artist/:release/:id" component={ReleaseView} />
         <Route path="/song/:song/:id" component={SongView} />
         <Route path="/" component={SearchView} />
       </Switch>

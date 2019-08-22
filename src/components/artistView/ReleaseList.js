@@ -13,9 +13,9 @@ const styles = {
   }
 };
 
-const ReleaseList = ({ releasesData }) => {
+const ReleaseList = ({ releasesData, artist }) => {
   const releases = releasesData.map(release => (
-    <ReleaseItem key={release.id} release={release} />
+    <ReleaseItem key={release.id} release={release} artist={artist} />
   ));
   return (
     <ul style={styles.list}>{releases}</ul>
@@ -23,7 +23,8 @@ const ReleaseList = ({ releasesData }) => {
 };
 
 ReleaseList.propTypes = {
-  releasesData: PropTypes.array.isRequired
+  releasesData: PropTypes.array.isRequired,
+  artist: PropTypes.string.isRequired
 };
 
 export default ReleaseList;

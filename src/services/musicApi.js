@@ -41,3 +41,15 @@ export const getRecordings = (id) => {
       return res.json();
     });
 };
+
+export const getLyrics = (artist, song) => {
+  return fetch(`https://api.lyrics.ovh/v1/${artist}/${song}`, {
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json' },
+  })
+    .then(res => {
+      if(!res.ok) throw 'Could not get recordings';
+
+      return res.json();
+    });
+};

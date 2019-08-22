@@ -10,31 +10,32 @@ class ArtistView extends React.Component {
     releases: []
   }
 
+  static propTypes = {
+    match: PropTypes.shape({
+      params: PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        artist: PropTypes.string.isRequired
+      }).isRequired
+    }).isRequired
+  }
+
   componentDidMount() {
-    const id = this.props.match.params.id;
+    const { id, artist } = this.props.match.params;
     getReleases(id)
       .then(res => {
-        this.setState({ releases: res.releases });
+        this.setState({ releases: res.releases, artist });
       });
   }
 
   render() {
-    const { releases } = this.state;
+    const { releases, artist } = this.state;
     return (
       <>
         <h1>Artist View</h1>
-        <ReleasesList releasesData={releases} />
+        <ReleasesList releasesData={releases} artist={artist} />
       </>
     );
   }
 }
-
-ArtistView.propTypes = {
-  match: PropTypes.shape({
-    params: PropTypes.shape({
-      id: PropTypes.string.isRequired
-    }).isRequired
-  }).isRequired
-};
 
 export default ArtistView;

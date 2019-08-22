@@ -8,6 +8,7 @@ import {
 import SearchView from '../containers/SearchView';
 import ArtistView from '../containers/ArtistView';
 import ReleaseView from '../containers/ReleaseView';
+import SongView from '../containers/SongView';
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
       <Switch>
         <Route path="/artist/:artist/:id" component={ArtistView} />
         <Route path="/release/:release/:id" component={ReleaseView} />
+        <Route path="/song/:song/:id" component={SongView} />
         <Route path="/" component={SearchView} />
       </Switch>
     </Router>

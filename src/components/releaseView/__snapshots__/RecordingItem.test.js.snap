@@ -1,7 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RecordingItem component renders RecordingItem 1`] = `
-<li>
-  <h3 />
-</li>
+<Link
+  to="/song/undefined/undefined"
+>
+  <li>
+    <h3 />
+  </li>
+</Link>
 `;

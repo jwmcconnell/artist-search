@@ -8,6 +8,7 @@ const style = {
 };
 
 class SongView extends React.Component {
+  _isMounted = false;
   state = {
     artist: '',
     song: '',
@@ -24,6 +25,7 @@ class SongView extends React.Component {
   }
 
   componentDidMount() {
+    this._isMounted = true;
     const { artist, song } = this.props.match.params;
     getLyrics(artist, song)
       .then(res => {
@@ -33,6 +35,10 @@ class SongView extends React.Component {
           lyrics: res.lyrics ? res.lyrics : 'There are no lyrics for this song.'
         });
       });
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false;
   }
 
   render() {

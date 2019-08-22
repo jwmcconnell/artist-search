@@ -6,6 +6,8 @@ import ReleasesList from '../components/artistView/ReleaseList';
 import PageControls from '../components/PageControls';
 
 class ArtistView extends React.Component {
+  _isMounted = false;
+
   state = {
     artist: '',
     artistId: '',
@@ -25,17 +27,24 @@ class ArtistView extends React.Component {
   }
 
   componentDidMount() {
+    this._isMounted = true;
     const { id, artist } = this.props.match.params;
     getReleases(id)
       .then(res => {
-        this.setState({ 
-          releases: res.releases, 
-          artist, 
-          artistId: id,
-          currentPage: 1,
-          pages: Math.ceil(res['release-count'] / 25)
-        });
+        if(this._isMounted) {
+          this.setState({ 
+            releases: res.releases, 
+            artist, 
+            artistId: id,
+            currentPage: 1,
+            pages: Math.ceil(res['release-count'] / 25)
+          });
+        }
       });
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false;
   }
 
   handlePageChange = (type) => {

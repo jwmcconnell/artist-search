@@ -8,6 +8,7 @@ import PageControls from '../components/PageControls';
 import { getArtists } from '../services/musicApi';
 
 class SearchView extends React.PureComponent {
+  _isMounted = false;
   state = {
     searchInput: '',
     currentSearch: '',
@@ -27,7 +28,12 @@ class SearchView extends React.PureComponent {
   }
 
   componentDidMount() {
+    this._isMounted = true;
     this.loadFromParams();
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false;
   }
 
   loadFromParams = () => {

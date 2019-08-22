@@ -6,6 +6,7 @@ import RecordingList from '../components/releaseView/RecordingList';
 import { getRecordings } from '../services/musicApi';
 
 class ReleaseView extends React.Component {
+  _isMounted = false;
   state = {
     artist: '',
     release: '',
@@ -23,11 +24,16 @@ class ReleaseView extends React.Component {
   }
 
   componentDidMount() {
+    this._isMounted = true;
     const { id, release, artist } = this.props.match.params;
     getRecordings(id)
       .then(res => {
         this.setState({ recordings: res.recordings, release, artist });
       });
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false;
   }
   
   render() {

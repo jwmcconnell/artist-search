@@ -1,10 +1,10 @@
 import React from 'react';
 
-import SearchField from '../components/SearchField';
-import ArtistList from '../components/ArtistList';
+import SearchField from '../components/searchView/SearchField';
+import ArtistList from '../components/searchView/ArtistList';
+import PageControls from '../components/PageControls';
 
 import { getArtists } from '../services/musicApi';
-import PageControls from '../components/PageControls';
 
 class SearchView extends React.PureComponent {
   state = {

@@ -29,3 +29,15 @@ export const getReleases = (id) => {
       return res.json();
     });
 };
+
+export const getRecordings = (id) => {
+  return fetch(`http://musicbrainz.org/ws/2/recording?release=${id}&fmt=json&limit=100`, {
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json' },
+  })
+    .then(res => {
+      if(!res.ok) throw 'Could not get recordings';
+
+      return res.json();
+    });
+};

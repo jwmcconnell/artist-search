@@ -21,12 +21,34 @@ class SearchView extends React.PureComponent {
     history: PropTypes.shape({
       replace: PropTypes.func.isRequired
     }).isRequired,
+    location: PropTypes.shape({
+      search: PropTypes.string.isRequired
+    })
+  }
+
+  componentDidMount() {
+    this.loadFromParams();
+  }
+
+  loadFromParams = () => {
+    const searchParams = new URLSearchParams(this.props.location.search);
+    const searchInput = searchParams.get('searchInput');
+    this.setState({ searchInput: searchInput, currentSearch: searchInput }, () => {
+      getArtists(this.state.currentSearch)
+        .then(res => {
+          this.setState({ 
+            artistsData: res.artists, 
+            currentPage: 1, 
+            pages: Math.ceil(res.count / 25) 
+          });
+        });
+    });
   }
 
   handleUpdate = e => {
     this.setState({ [e.target.name]: e.target.value });
     if(e.target.name === 'searchInput') {
-      this.props.history.replace(`/?currentSearch=${e.target.value}`);
+      this.props.history.replace(`/?searchInput=${e.target.value}`);
     }
   }
 

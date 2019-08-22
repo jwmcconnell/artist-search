@@ -14,16 +14,17 @@ class ReleaseView extends React.Component {
   static propTypes = {
     match: PropTypes.shape({
       params: PropTypes.shape({
-        id: PropTypes.string.isRequired
+        id: PropTypes.string.isRequired,
+        release: PropTypes.string.isRequired
       }).isRequired
     }).isRequired
   }
 
   componentDidMount() {
-    const id = this.props.match.params.id;
+    const { id, release } = this.props.match.params;
     getRecordings(id)
       .then(res => {
-        this.setState({ recordings: res.recordings });
+        this.setState({ recordings: res.recordings, release });
       });
   }
   

@@ -3,6 +3,10 @@ import PropTypes from 'prop-types';
 
 import { getLyrics } from '../services/musicApi';
 
+const style = {
+  whiteSpace: 'pre'
+};
+
 class SongView extends React.Component {
   state = {
     artist: '',
@@ -23,7 +27,6 @@ class SongView extends React.Component {
     const { artist, song } = this.props.match.params;
     getLyrics(artist, song)
       .then(res => {
-
         this.setState({ 
           artist, 
           song, 
@@ -36,7 +39,7 @@ class SongView extends React.Component {
     return (
       <>
         <h1>Song</h1>
-        <p>{this.state.lyrics}</p>
+        <p style={style}>{this.state.lyrics}</p>
       </>
     );
   }

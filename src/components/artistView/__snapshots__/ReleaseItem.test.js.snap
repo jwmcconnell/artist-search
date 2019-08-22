@@ -2,7 +2,7 @@
 
 exports[`ReleaseItem component renders ReleaseItem 1`] = `
 <Link
-  to="/release/undefined/undefined/undefined"
+  to="/release/jinsang/undefined/undefined"
 >
   <li
     style={

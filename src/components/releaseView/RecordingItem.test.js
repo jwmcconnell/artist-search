@@ -4,7 +4,7 @@ import RecordingItem from './RecordingItem';
 
 describe('RecordingItem component', () => {
   it('renders RecordingItem', () => {
-    const wrapper = shallow(<RecordingItem recording={{}} />);
+    const wrapper = shallow(<RecordingItem recording={{}} artist="jinsang" />);
     expect(wrapper).toMatchSnapshot();
   });
 });

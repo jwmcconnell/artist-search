@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const RecordingItem = ({ recording }) => {
+const RecordingItem = ({ recording, artist }) => {
   return (
-    <Link to={`/song/${recording.title}/${recording.id}`}>
+    <Link to={`/song/${artist}/${recording.title}/${recording.id}`}>
       <li>
         <h3>{recording.title}</h3>
       </li>
@@ -13,7 +13,8 @@ const RecordingItem = ({ recording }) => {
 };
 
 RecordingItem.propTypes = {
-  recording: PropTypes.object.isRequired
+  recording: PropTypes.object.isRequired,
+  artist: PropTypes.string.isRequired
 };
 
 export default RecordingItem;

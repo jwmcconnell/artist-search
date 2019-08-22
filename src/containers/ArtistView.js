@@ -6,7 +6,7 @@ import ReleasesList from '../components/artistView/ReleaseList';
 
 class ArtistView extends React.Component {
   state = {
-    artist: {},
+    artist: '',
     releases: []
   }
 

@@ -1,9 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { getLyrics } from '../services/musicApi';
+
 class SongView extends React.Component {
   state = {
-
+    artist: '',
+    song: '',
+    lyrics: ''
   }
 
   static propTypes = {
@@ -16,17 +20,18 @@ class SongView extends React.Component {
   }
 
   componentDidMount() {
-    // const { id, song } = this.props.match.params;
-    // getLyrics(id)
-    //   .then(res => {
-    //     this.setState({ lyrics: res.recordings, release });
-    //   });
+    const { artist, song } = this.props.match.params;
+    getLyrics(artist, song)
+      .then(res => {
+        this.setState({ artist, song, lyrics: res.lyrics });
+      });
   }
 
   render() {
     return (
       <>
         <h1>Song</h1>
+        <p>{this.state.lyrics}</p>
       </>
     );
   }

@@ -7,6 +7,7 @@ import { getRecordings } from '../services/musicApi';
 
 class ReleaseView extends React.Component {
   state = {
+    artist: '',
     release: '',
     recordings: []
   }
@@ -15,25 +16,26 @@ class ReleaseView extends React.Component {
     match: PropTypes.shape({
       params: PropTypes.shape({
         id: PropTypes.string.isRequired,
-        release: PropTypes.string.isRequired
+        release: PropTypes.string.isRequired,
+        artist: PropTypes.string.isRequired
       }).isRequired
     }).isRequired
   }
 
   componentDidMount() {
-    const { id, release } = this.props.match.params;
+    const { id, release, artist } = this.props.match.params;
     getRecordings(id)
       .then(res => {
-        this.setState({ recordings: res.recordings, release });
+        this.setState({ recordings: res.recordings, release, artist });
       });
   }
   
   render() {
-    const { recordings } = this.state;
+    const { recordings, artist } = this.state;
     return (
       <>
         <h1>Release</h1>
-        <RecordingList recordingsData={recordings} />
+        <RecordingList recordingsData={recordings} artist={artist} />
       </>
     );
   }

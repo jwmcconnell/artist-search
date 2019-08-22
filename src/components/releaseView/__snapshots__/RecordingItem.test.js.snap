@@ -2,7 +2,7 @@
 
 exports[`RecordingItem component renders RecordingItem 1`] = `
 <Link
-  to="/song/undefined/undefined"
+  to="/song/jinsang/undefined/undefined"
 >
   <li>
     <h3 />

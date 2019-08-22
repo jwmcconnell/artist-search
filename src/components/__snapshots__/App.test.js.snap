@@ -13,7 +13,7 @@ exports[`App component renders App 1`] = `
     />
     <Route
       component={[Function]}
-      path="/song/:song/:id"
+      path="/song/:artist/:song/:id"
     />
     <Route
       component={[Function]}

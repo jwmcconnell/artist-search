@@ -4,7 +4,10 @@ import ReleaseItem from './ReleaseItem';
 
 describe('ReleaseItem component', () => {
   it('renders ReleaseItem', () => {
-    const wrapper = shallow(<ReleaseItem release={{ 'cover-art-archive': { font: null } }}/>);
+    const wrapper = shallow(<ReleaseItem 
+      release={{ 'cover-art-archive': { font: null } }} 
+      artist="jinsang" 
+    />);
     expect(wrapper).toMatchSnapshot();
   });
 });

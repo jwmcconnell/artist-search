@@ -4,7 +4,7 @@ import ReleaseList from './ReleaseList';
 
 describe('ReleaseList component', () => {
   it('renders ReleaseList', () => {
-    const wrapper = shallow(<ReleaseList releasesData={[]} />);
+    const wrapper = shallow(<ReleaseList releasesData={[]} artist="jinsang" />);
     expect(wrapper).toMatchSnapshot();
   });
 });

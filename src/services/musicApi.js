@@ -48,7 +48,7 @@ export const getLyrics = (artist, song) => {
     headers: { 'Content-Type': 'application/json' },
   })
     .then(res => {
-      if(!res.ok) throw 'Could not get recordings';
+      if(!res.ok) throw 'Could not get lyrics';
 
       return res.json();
     });

@@ -9,9 +9,9 @@ const styles = {
   }
 };
 
-const RecordingList = ({ recordingsData }) => {
+const RecordingList = ({ recordingsData, artist }) => {
   const recordings = recordingsData.map(recording => (
-    <RecordingItem key={recording.id} recording={recording} />
+    <RecordingItem key={recording.id} recording={recording} artist={artist} />
   ));
   return (
     <ul style={styles.list}>{recordings}</ul>
@@ -19,7 +19,8 @@ const RecordingList = ({ recordingsData }) => {
 };
 
 RecordingList.propTypes = {
-  recordingsData: PropTypes.array.isRequired
+  recordingsData: PropTypes.array.isRequired,
+  artist: PropTypes.string.isRequired
 };
 
 export default RecordingList;

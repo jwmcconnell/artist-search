@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { getReleases } from '../services/musicApi';
 
-import ReleasesList from '../components/ReleaseList';
+import ReleasesList from '../components/artistView/ReleaseList';
 
 class ArtistView extends React.Component {
   state = {

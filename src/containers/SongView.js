@@ -23,7 +23,12 @@ class SongView extends React.Component {
     const { artist, song } = this.props.match.params;
     getLyrics(artist, song)
       .then(res => {
-        this.setState({ artist, song, lyrics: res.lyrics });
+
+        this.setState({ 
+          artist, 
+          song, 
+          lyrics: res.lyrics ? res.lyrics : 'There are no lyrics for this song.'
+        });
       });
   }
 

@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import RecordingList from '../components/releaseView/RecordingList';
+
 import { getRecordings } from '../services/musicApi';
 
 class ReleaseView extends React.Component {
@@ -26,7 +28,13 @@ class ReleaseView extends React.Component {
   }
   
   render() {
-    return <h1>Release</h1>;
+    const { recordings } = this.state;
+    return (
+      <>
+        <h1>Release</h1>
+        <RecordingList recordingsData={recordings} />
+      </>
+    );
   }
 }
 

@@ -1,25 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ReleaseItem component renders ReleaseItem 1`] = `
-<li
-  style={
-    Object {
-      "height": "300px",
-      "margin": "5px",
-      "textAlign": "center",
-      "width": "300px",
-    }
-  }
+<Link
+  to="/release/undefined/undefined"
 >
-  <h3 />
-  <img
-    src="/src/assets/placeholder.jpg"
+  <li
     style={
       Object {
-        "height": "250px",
-        "width": "250px",
+        "height": "300px",
+        "margin": "5px",
+        "textAlign": "center",
+        "width": "300px",
       }
     }
-  />
-</li>
+  >
+    <h3 />
+    <img
+      src="/src/assets/placeholder.jpg"
+      style={
+        Object {
+          "height": "250px",
+          "width": "250px",
+        }
+      }
+    />
+  </li>
+</Link>
 `;

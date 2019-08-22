@@ -17,7 +17,7 @@ const styles = {
 
 const ArtistItem = ({ artist }) => {
   return (
-    <Link to={`/${artist.name}/${artist.id}`}>
+    <Link to={`/artist/${artist.name}/${artist.id}`}>
       <li style={styles.item}>
         <h4>{artist.name}</h4>
         <p>{artist.disambiguation}</p>

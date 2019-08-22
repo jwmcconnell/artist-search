@@ -2,7 +2,7 @@
 
 exports[`ArtistItem component renders ArtistItem 1`] = `
 <Link
-  to="/name/id"
+  to="/artist/name/id"
 >
   <li
     style={

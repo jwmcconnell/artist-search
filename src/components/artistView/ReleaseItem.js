@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const styles = {
   item: {
@@ -19,10 +20,12 @@ const ReleaseItem = ({ release }) => {
     ? `http://coverartarchive.org/release/${release.id}/front` 
     : '/src/assets/placeholder.jpg';
   return (
-    <li style={styles.item}>
-      <h3>{release.title}</h3>
-      <img src={image} style={styles.image}/>
-    </li>
+    <Link to={`/release/${release.title}/${release.id}`} >
+      <li style={styles.item}>
+        <h3>{release.title}</h3>
+        <img src={image} style={styles.image}/>
+      </li>
+    </Link>
   );
 };
 

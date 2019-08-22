@@ -12,7 +12,8 @@ class SearchView extends React.PureComponent {
     currentSearch: '',
     artistsData: [],
     currentPage: 0,
-    pages: 0
+    pages: 0,
+    disableControls: false
   }
 
   handleUpdate = e => {
@@ -34,21 +35,27 @@ class SearchView extends React.PureComponent {
   }
 
   handlePageChange = (type) => {
-    this.setState(state => ({ 
-      currentPage: type === 'increment' 
-        ? state.currentPage + 1 
-        : state.currentPage - 1 
-    }), () => {
-      const { currentSearch, currentPage } = this.state;
-      getArtists(currentSearch, currentPage)
+    const { currentPage, currentSearch } = this.state;
+    const nextPage = type === 'increment' ? currentPage + 1 : currentPage - 1;
+    this.setState({ disableControls: true }, () => {
+      getArtists(currentSearch, nextPage)
         .then(res => {
-          this.setState({ artistsData: res.artists });
+          this.setState({ 
+            artistsData: res.artists, 
+            currentPage: (res.offset / 25) + 1,
+            disableControls: false
+          });
+        })
+        .catch(() => {
+          this.setState({
+            disableControls: false
+          });
         });
     });
   }
 
   render() {
-    const { searchInput, artistsData, currentPage, pages } = this.state;
+    const { searchInput, artistsData, currentPage, pages, disableControls } = this.state;
     return (
       <>
         <SearchField 
@@ -60,6 +67,7 @@ class SearchView extends React.PureComponent {
           currentPage={currentPage} 
           pages={pages} 
           handlePageChange={this.handlePageChange} 
+          disableControls={disableControls}
         />
         <ArtistList artistsData={artistsData} />
       </>

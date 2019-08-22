@@ -18,8 +18,8 @@ export const getArtists = (artist, page = 1) => {
     });
 };
 
-export const getReleases = (id) => {
-  return fetch(`http://musicbrainz.org/ws/2/release?artist=${id}&fmt=json`, {
+export const getReleases = (id, page = 1) => {
+  return fetch(`http://musicbrainz.org/ws/2/release?artist=${id}&fmt=json&offset=${(page - 1) * 25}`, {
     method: 'GET',
     headers: { 'Content-Type': 'application/json' },
   })

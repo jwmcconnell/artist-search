@@ -43,11 +43,12 @@ class SearchView extends React.PureComponent {
       this.setState({ searchInput: searchInput, currentSearch: searchInput }, () => {
         getArtists(this.state.currentSearch)
           .then(res => {
-            this.setState({ 
-              artistsData: res.artists, 
-              currentPage: 1, 
-              pages: Math.ceil(res.count / 25) 
-            });
+            if(this._isMounted)
+              this.setState({ 
+                artistsData: res.artists, 
+                currentPage: 1, 
+                pages: Math.ceil(res.count / 25) 
+              });
           });
       });
     }

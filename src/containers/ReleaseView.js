@@ -28,7 +28,8 @@ class ReleaseView extends React.Component {
     const { id, release, artist } = this.props.match.params;
     getRecordings(id)
       .then(res => {
-        this.setState({ recordings: res.recordings, release, artist });
+        if(this._isMounted)
+          this.setState({ recordings: res.recordings, release, artist });
       });
   }
 

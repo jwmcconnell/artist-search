@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import SearchField from '../components/searchView/SearchField';
 import ArtistList from '../components/searchView/ArtistList';
@@ -16,8 +17,17 @@ class SearchView extends React.PureComponent {
     disableControls: false
   }
 
+  static propTypes = {
+    history: PropTypes.shape({
+      replace: PropTypes.func.isRequired
+    }).isRequired,
+  }
+
   handleUpdate = e => {
     this.setState({ [e.target.name]: e.target.value });
+    if(e.target.name === 'searchInput') {
+      this.props.history.replace(`/?currentSearch=${e.target.value}`);
+    }
   }
 
   handleSubmit = e => {

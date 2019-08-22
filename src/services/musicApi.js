@@ -1,5 +1,5 @@
-export const getArtists = (artist) => {
-  return fetch(`http://musicbrainz.org/ws/2/artist?query=${artist}&fmt=json&limit=25`, {
+export const getArtists = (artist, page = 1) => {
+  return fetch(`http://musicbrainz.org/ws/2/artist?query=${artist}&fmt=json&limit=25&offset=${(page - 1) * 25}`, {
     method: 'GET',
     headers: { 'Content-Type': 'application/json' },
   })

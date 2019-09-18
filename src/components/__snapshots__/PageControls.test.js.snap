@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageControls component renders PageControls 1`] = `
+<section
+  style={
+    Object {
+      "margin": "10px",
+      "textAlign": "center",
+    }
+  }
+>
+  <button
+    disabled={true}
+    onClick={[Function]}
+    style={
+      Object {
+        "margin": "5px",
+      }
+    }
+  >
+    ←
+  </button>
+  <span>
+    Page: 
+    1
+     of: 
+    10
+  </span>
+  <button
+    disabled={false}
+    onClick={[Function]}
+    style={
+      Object {
+        "margin": "5px",
+      }
+    }
+  >
+    →
+  </button>
+</section>
+`;

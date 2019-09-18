@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ArtistItem component renders ArtistItem 1`] = `
+<Link
+  to="/artist/name/id"
+>
+  <li
+    style={
+      Object {
+        "border": "1px solid black",
+        "display": "flex",
+        "flexDirection": "column",
+        "height": "200px",
+        "justifyContent": "center",
+        "margin": "5px",
+        "textAlign": "center",
+        "width": "300px",
+      }
+    }
+  >
+    <h4>
+      name
+    </h4>
+    <p />
+  </li>
+</Link>
+`;
